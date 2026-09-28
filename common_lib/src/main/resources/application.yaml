@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: common_lib
+
+jwt:
+  secret-key: default_secret_key_placeholder_change_in_production_environment_32bytes_long
+
+

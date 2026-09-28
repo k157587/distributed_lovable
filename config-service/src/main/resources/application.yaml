@@ -1,0 +1,15 @@
+
+spring:
+  application:
+    name: config-service
+
+
+
+  cloud:
+    config.server.git:
+      uri: https://github.com/k157587/config-server
+      username: k157587
+      password: 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
+      default-label: main
+
+server.port: 8888

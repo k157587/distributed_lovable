@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/account_service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/api-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common_lib/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/discovery_service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/intelligence_service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace_service/src/main/java" charset="UTF-8" />
+  </component>
+</project>
