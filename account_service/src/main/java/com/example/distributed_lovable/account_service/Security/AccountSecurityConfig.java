@@ -37,7 +37,7 @@ public class AccountSecurityConfig {
                 .authorizeHttpRequests(auth ->auth
                         .dispatcherTypeMatchers(DispatcherType.ASYNC).permitAll()
                         .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
-                        .requestMatchers("/api/auth/**","/webhooks/**").permitAll()
+                        .requestMatchers("/auth/**","/webhooks/**").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling(exceptionHandlingConfigurer ->

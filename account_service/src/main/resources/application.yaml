@@ -1,6 +1,10 @@
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
 
 spring:
   application:
-    name: account_service
+    name: account-service
   config:
     import: configserver:http://localhost:8888
