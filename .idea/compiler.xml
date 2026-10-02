@@ -7,21 +7,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="api-gateway" />
         <module name="config-service" />
         <module name="discovery_service" />
       </profile>
-      <profile name="Annotation profile for workspace_service" enabled="true">
+      <profile name="Annotation profile for api-gateway" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
         </processorPath>
-        <module name="intelligence_service" />
+        <module name="api-gateway" />
         <module name="common_lib" />
       </profile>
-      <profile name="Annotation profile for account_service" enabled="true">
+      <profile name="Annotation profile for workspace_service" enabled="true">
         <sourceOutputDir name="../generated-sources/annotations" />
         <sourceTestOutputDir name="../generated-test-sources/test-annotations" />
         <processorPath useClasspath="false">
@@ -29,24 +28,12 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.6.0/mapstruct-processor-1.6.0.jar" />
         </processorPath>
-        <module name="account_service.main" />
-        <module name="account_service.test" />
-      </profile>
-      <profile name="Annotation profile for workspace_service.main" enabled="true">
-        <sourceOutputDir name="../generated-sources/annotations" />
-        <sourceTestOutputDir name="../generated-test-sources/test-annotations" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
-        </processorPath>
         <module name="workspace_service.main" />
-      </profile>
-      <profile name="Annotation profile for workspace_service.test" enabled="true">
-        <sourceOutputDir name="../generated-sources/annotations" />
-        <sourceTestOutputDir name="../generated-test-sources/test-annotations" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
-        </processorPath>
+        <module name="account_service.test" />
+        <module name="intelligence_service.test" />
+        <module name="account_service.main" />
         <module name="workspace_service.test" />
+        <module name="intelligence_service.main" />
       </profile>
     </annotationProcessing>
   </component>
@@ -60,6 +47,8 @@
       <module name="config-service" options="-parameters" />
       <module name="discovery_service" options="-parameters" />
       <module name="intelligence_service" options="-parameters" />
+      <module name="intelligence_service.main" options="-parameters" />
+      <module name="intelligence_service.test" options="-parameters" />
       <module name="workspace_service" options="-parameters" />
       <module name="workspace_service.main" options="-parameters" />
       <module name="workspace_service.test" options="-parameters" />

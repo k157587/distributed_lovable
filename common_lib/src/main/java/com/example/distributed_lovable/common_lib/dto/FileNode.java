@@ -1,4 +1,4 @@
-package com.example.distributed_lovable.workspace_service.dto.project;
+package com.example.distributed_lovable.common_lib.dto;
 
 
 

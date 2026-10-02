@@ -1,9 +1,8 @@
 package com.example.distributed_lovable.workspace_service.service.impl;
 
+import com.example.distributed_lovable.common_lib.dto.FileNode;
+import com.example.distributed_lovable.common_lib.dto.FileTreeDto;
 import com.example.distributed_lovable.common_lib.error.ResourceNotFoundException;
-import com.example.distributed_lovable.workspace_service.dto.project.FileContentResponse;
-import com.example.distributed_lovable.workspace_service.dto.project.FileNode;
-import com.example.distributed_lovable.workspace_service.dto.project.FileTreeResponse;
 import com.example.distributed_lovable.workspace_service.entity.Project;
 import com.example.distributed_lovable.workspace_service.entity.ProjectFile;
 import com.example.distributed_lovable.workspace_service.mapper.ProjectFileMapper;
@@ -42,17 +41,17 @@ public class ProjectFileServiceImpl implements ProjectFileService {
     private static final String BUCKET_NAME = "projects";
 
     @Override
-    public FileTreeResponse getFileTree(Long projectId) {
+    public FileTreeDto getFileTree(Long projectId) {
 
         List<ProjectFile> projectFileList = projectFileRepository.findByProjectId(projectId);
         List<FileNode> projectFileNodes = projectFileMapper.toListOfFileNode(projectFileList);
 
 
-        return new FileTreeResponse(projectFileNodes);
+        return new FileTreeDto(projectFileNodes);
     }
 
     @Override
-    public FileContentResponse getFileContent(Long projectId, String path) {
+    public String getFileContent(Long projectId, String path) {
         String objectName = projectId + "/" + path;
         try (
                 InputStream is = minioClient.getObject(
@@ -62,11 +61,11 @@ public class ProjectFileServiceImpl implements ProjectFileService {
                                 .build())) {
 
             String content = new String(is.readAllBytes(), StandardCharsets.UTF_8);
-            return new FileContentResponse(path, content);
+            return content;
         } catch (io.minio.errors.ErrorResponseException e) {
             if ("NoSuchKey".equals(e.errorResponse().code())) {
                 log.warn("File not found in MinIO: {}/{}", projectId, path);
-                return new FileContentResponse(path, "Error: File does not exist");
+                return "Error: File does not exist";
             }
             log.error("MinIO error reading file: {}/{}", projectId, path, e);
             throw new RuntimeException("Failed to read file content", e);
