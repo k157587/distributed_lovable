@@ -10,8 +10,8 @@
 	</parent>
 	<groupId>com.example.distributed_lovable</groupId>
 	<artifactId>config-service</artifactId>
+    <name>config-service</name>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
 	<description/>
 	<url/>
 	<licenses>
@@ -68,6 +68,27 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.4.4</version>
+                <configuration>
+                    <to>
+                        <image>docker.io/krishna77723/lovable-${project.name}:${project.version}</image>
+                        <tags>
+                            <tag>latest</tag>
+                        </tags>
+                    </to>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 	</build>
 
