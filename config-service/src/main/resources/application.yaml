@@ -9,7 +9,7 @@ spring:
     config.server.git:
       uri: https://github.com/k157587/config-server
       username: k157587
-      password: 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
+      password:
       default-label: main
 
 server.port: 8888
